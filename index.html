@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Delisa</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #fffafb;
+            color: #49343b;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: #fffafb;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #49343b;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #c75f7b;
+        }
+
+        section {
+            padding: 90px 8%;
+        }
+
+        /* BERANDA */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .section-label {
+            color: #c75f7b;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 55px;
+            line-height: 1.2;
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: #c75f7b;
+        }
+
+        .hero-text p {
+            color: #806c73;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 28px;
+            background: #c75f7b;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #a94764;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-frame {
+            width: 320px;
+            height: 390px;
+            border-radius: 48% 48% 20px 20px;
+            background: #f8dce4;
+            overflow: hidden;
+            border: 8px solid #f8dce4;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #profileUpload {
+            display: none;
+        }
+
+        /* JUDUL SECTION */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            color: #49343b;
+            margin-top: 10px;
+        }
+
+        /* KEMAMPUAN DAN MINAT */
+
+        .skills {
+            background: #fff0f3;
+            text-align: center;
+            padding: 55px 8%;
+        }
+
+        .skills h2 {
+            font-size: 28px;
+            color: #49343b;
+            margin-bottom: 45px;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .skill-item {
+            background: white;
+            color: #c75f7b;
+            padding: 20px 30px;
+            border-radius: 50px;
+            font-size: 19px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .skill-item:hover {
+            background: #c75f7b;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* PROYEK SAYA - TANPA FOTO */
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            border-bottom: 4px solid #f8dce4;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-bottom-color: #c75f7b;
+        }
+
+        .project-info small {
+            color: #c75f7b;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .project-info h3 {
+            margin: 15px 0;
+            font-size: 19px;
+            color: #49343b;
+        }
+
+        .project-info p {
+            color: #806c73;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* KONTAK */
+
+        .contact {
+            background: #fff0f3;
+        }
+
+        .contact-container {
+            max-width: 750px;
+            margin: auto;
+            padding: 40px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        }
+
+        .contact-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-heading h2 {
+            font-family: 'Playfair Display', serif;
+            color: #c75f7b;
+            font-size: 35px;
+            margin: 10px 0;
+        }
+
+        .contact-heading p {
+            color: #806c73;
+            line-height: 1.7;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: #6b3c4a;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #edc5d0;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            background: #fffafb;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #c75f7b;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .contact-form button {
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            background: #c75f7b;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #a94764;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #49343b;
+            color: white;
+            font-size: 13px;
+        }
+
+        /* TAMPILAN HP */
+
+        @media (max-width: 768px) {
+            header {
+                padding: 18px 5%;
+                justify-content: center;
+            }
+
+            nav {
+                gap: 17px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 35px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-text p {
+                margin: auto;
+            }
+
+            .photo-frame {
+                width: 250px;
+                height: 300px;
+            }
+
+            .skills {
+                padding: 55px 6%;
+            }
+
+            .skills h2 {
+                font-size: 25px;
+            }
+
+            .skill-item {
+                padding: 16px 25px;
+                font-size: 16px;
+            }
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                padding: 25px;
+            }
+
+            .contact-container {
+                padding: 25px 18px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#kemampuan">Kemampuan dan Minat</a>
+            <a href="#proyek">Proyek</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </header>
+
+    <!-- BERANDA -->
+    <section class="hero" id="beranda">
+        <div class="hero-text">
+            <p class="section-label">SELAMAT DATANG DI PORTOFOLIO SAYA</p>
+
+            <h1>Halo, Saya <span>Delisa Yulianti</span></h1>
+
+            <p>
+                Junior Web Developer dengan pemahaman dasar dalam pengembangan website dan pemrograman web. Menguasai HTML, CSS, PHP, JavaScript, serta MySQL untuk membangun dan mengembangkan aplikasi berbasis web. Memiliki pengalaman mengerjakan proyek pengembangan aplikasi melalui kegiatan Uji Kompetensi Keahlian (UKK) dan tugas proyek sekolah. Mampu memahami alur kerja pemrograman, menyelesaikan permasalahan, serta memiliki ketelitian dan kemampuan beradaptasi dalam mempelajari teknologi baru.
+            </p>
+
+            <a href="#proyek" class="button">Lihat Proyek</a>
+        </div>
+
+        <div class="hero-image">
+            <div>
+                <div class="photo-frame">
+                    <img
+                        id="profileImage"
+                        src="ptdelisa.jpeg"
+                        alt="Foto Profil Delisa"
+                    >
+                </div>
+
+                <input
+                    type="file"
+                    id="profileUpload"
+                    accept="image/*"
+                >
+            </div>
+        </div>
+    </section>
+
+    <!-- KEMAMPUAN DAN MINAT -->
+    <section class="skills" id="kemampuan">
+        <h2>Kemampuan dan Minat</h2>
+
+        <div class="skills-container">
+            <div class="skill-item">HTML</div>
+            <div class="skill-item">CSS</div>
+            <div class="skill-item">PHP</div>
+            <div class="skill-item">MySQL</div>
+            <div class="skill-item">JavaScript</div>
+        </div>
+    </section>
+
+    <!-- PROYEK SAYA -->
+    <section id="proyek">
+        <div class="section-title">
+            <p class="section-label">HASIL KARYA SAYA</p>
+            <h2>Proyek Saya</h2>
+        </div>
+
+        <div class="project-container">
+
+            <div class="project-card">
+                <div class="project-info">
+                    <small>PROYEK UJI KOMPETENSI KEAHLIAN</small>
+                    <h3>Company Profile</h3>
+                    <p>
+                        Membuat website company profile yang berisi
+                        informasi mengenai profil, identitas, serta
+                        layanan sebuah perusahaan. Website dibuat
+                        menggunakan HTML, CSS, dan JavaScript.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <small>PROYEK TUGAS SEKOLAH</small>
+                    <h3>Desain Antarmuka</h3>
+                    <p>
+                        Merancang tampilan antarmuka website dengan
+                        memperhatikan tata letak, pemilihan warna,
+                        dan kenyamanan pengguna menggunakan aplikasi
+                        Figma.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <small>PROYEK 03</small>
+                    <h3>Pengelolaan Basis Data</h3>
+                    <p>
+                        Membuat dan mengelola basis data menggunakan
+                        MySQL dan phpMyAdmin untuk menyimpan,
+                        mengatur, serta mengelola informasi dalam
+                        sebuah aplikasi.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="contact" id="kontak">
+        <div class="contact-container">
+
+            <div class="contact-heading">
+                <p class="section-label">MARI TERHUBUNG</p>
+                <h2>Hubungi Saya!</h2>
+
+                <p>
+                    Punya pertanyaan atau ingin bekerja sama?
+                    Silakan kirim pesan melalui formulir berikut.
+                </p>
+            </div>
+
+            <form class="contact-form" onsubmit="kirimPesan(event)">
+
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" placeholder="Masukkan nama kamu" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subjek">Subjek</label>
+                    <input type="text" id="subjek" placeholder="Masukkan subjek pesan" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pesan">Pesan</label>
+                    <textarea id="pesan" rows="5" placeholder="Tuliskan pesan kamu di sini..." required></textarea>
+                </div>
+
+                <button type="submit">Kirim Pesan</button>
+
+            </form>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Delisa. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        // Mengganti foto profil
+        document.getElementById("profileUpload").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                document.getElementById("profileImage").src =
+                    URL.createObjectURL(file);
+            }
+        });
+
+        // Mengirim pesan ke WhatsApp
+        function kirimPesan(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById("nama").value;
+            const subjek = document.getElementById("subjek").value;
+            const pesan = document.getElementById("pesan").value;
+
+            const nomorTujuan = "628xxxxxxxxxx";
+
+            const isiPesan =
+                `Halo, saya ${nama}.\n` +
+                `Subjek: ${subjek}\n` +
+                `Pesan: ${pesan}`;
+
+            const url =
+                `https://wa.me/${nomorTujuan}?text=${encodeURIComponent(isiPesan)}`;
+
+            window.open(url, "_blank");
+        }
+    </script>
+
+</body>
+</html>
